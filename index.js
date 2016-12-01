@@ -4,7 +4,24 @@ const express = require('express'),
 	port = process.env.PORT || 8080;
 
 app.use('/', (req, res) => {
-	res.send(req.headers);
+	var objToSend = {
+		ipaddress: "",
+		language: "",
+		software: ""
+	};
+	var headers = req.headers;
+	console.log(req);
+
+	objToSend.ipaddress = req.headers['x-forwarded-for'] ||
+     	req.connection.remoteAddress ||
+     	req.socket.remoteAddress ||
+     	req.connection.socket.remoteAddress;
+
+	objToSend.language = headers["accept-language"].split(',')[0];
+
+	objToSend.software = /\(([^)]+)\)/.exec(headers["user-agent"])[1]; //complicated regex for extracting first string between paranthesisses
+
+	res.send(objToSend);
 });
 
 app.listen(port, (err) => {
