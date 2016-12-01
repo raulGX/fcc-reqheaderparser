@@ -1,0 +1,23 @@
+{
+  "name": "fcc-reqheaderparser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raulGX/fcc-reqheaderparser.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raulGX/fcc-reqheaderparser/issues"
+  },
+  "homepage": "https://github.com/raulGX/fcc-reqheaderparser#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
